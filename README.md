@@ -5,4 +5,8 @@
 
 Task Tool for Automating the project   
   Intall by below cammand for windows  
-  **npm install -g @go-task/cli**
+  **npm install -g @go-task/cli**  
+Command for Start and Stop project  
+<task start_infra>  
+<task stop_infra>
+  
