@@ -1,0 +1,21 @@
+version: "3.8"
+name: 'Book-Store Microservice'
+services:
+  catalog-db:
+    image: mysql:8.0
+    container_name: catalog-db
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=catalogdb
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+
+
+#    docker compose -f infra.yml up -d  run this in terminal  -f for file and -d for detach(interactive) mode
