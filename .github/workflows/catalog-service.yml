@@ -26,7 +26,9 @@ jobs:
           cache: 'maven'
 
       - name: Grant execute permission for Maven wrapper
-        run: chmod +x ./mvnw
+        run: chmod +x catalog-service/mvnw
 
       - name: Build with Maven
-        run: ./mvnw -ntp verify
+        run: catalog-service/mvnw -ntp verify
+
+
