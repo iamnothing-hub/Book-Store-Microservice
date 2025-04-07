@@ -11,7 +11,7 @@ import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.jdbc.Sql;
 
-@Sql("/test-data.sql")
+//@Sql("/test-data.sql")
 public class ProductControllerTest extends AbstarctIntegrationTest {
 
     /**
