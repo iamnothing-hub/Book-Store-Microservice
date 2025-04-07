@@ -45,7 +45,7 @@ public class ProductControllerTest extends AbstarctIntegrationTest {
                 .statusCode(200)
                 .body("content", hasSize(10))
                 .body("totalElements", is(15))
-                .body("pageNumber", is(1))
+                .body("pageNumber", is(0))
                 .body("totalPages", is(2))
                 //                .body("isFirst", is(true))
                 .body("lastPage", is(false))

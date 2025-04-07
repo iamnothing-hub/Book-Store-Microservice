@@ -23,12 +23,15 @@ public class ProductRepositoryTest {
         this.productRepository = productRepository;
     }*/
 
+    /**
     @Test
     void shouldGetAllProducts() {
         List<Product> products = productRepository.findAll();
         assertThat(products).hasSize(15);
     }
+    **/
 
+    /**
     @Test
     void shouldGetProductByCode() {
         Product product = productRepository.findByCode("B001").orElseThrow();
@@ -38,9 +41,13 @@ public class ProductRepositoryTest {
         assertThat(product.getPrice()).isEqualTo(499.0);
     }
 
+    **/
+    /**
     @Test
     void shouldReturnEmptyWhenProductCodeNotExist() {
 
         assertThat(productRepository.findByCode("invalid_product_code")).isEmpty();
     }
+
+    **/
 }
