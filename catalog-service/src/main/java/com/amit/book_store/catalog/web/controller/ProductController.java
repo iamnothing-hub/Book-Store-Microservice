@@ -1,6 +1,5 @@
 package com.amit.book_store.catalog.web.controller;
 
-
 import com.amit.book_store.catalog.domain.exception.ProductNotFoundException;
 import com.amit.book_store.catalog.domain.helper.PageableResponse;
 import com.amit.book_store.catalog.domain.product.Product;
@@ -24,8 +23,7 @@ public class ProductController {
     @GetMapping
     public ResponseEntity<PageableResponse<Product>> getProducts(
             @RequestParam(name = "page", defaultValue = "1") int pageNumber,
-            @RequestParam(name = "pageSize", defaultValue = "10") int pageSize
-            ){
+            @RequestParam(name = "pageSize", defaultValue = "10") int pageSize) {
 
         PageableResponse<Product> allProducts = productService.getAllProducts(pageNumber, pageSize);
         return new ResponseEntity<>(allProducts, HttpStatus.OK);
@@ -35,7 +33,5 @@ public class ProductController {
     public ResponseEntity<Product> getProductByCode(@PathVariable String code) throws ProductNotFoundException {
         Product product = productService.getProductByCode(code);
         return new ResponseEntity<>(product, HttpStatus.OK);
-
     }
-
 }

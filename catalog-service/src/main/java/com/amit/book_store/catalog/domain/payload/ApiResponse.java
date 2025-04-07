@@ -1,10 +1,8 @@
 package com.amit.book_store.catalog.domain.payload;
 
-import org.springframework.http.HttpStatus;
-
 import java.net.URI;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import org.springframework.http.HttpStatus;
 
 public class ApiResponse {
 
@@ -15,8 +13,7 @@ public class ApiResponse {
     private String instance;
     private LocalDateTime timestamp;
 
-    public ApiResponse() {
-    }
+    public ApiResponse() {}
 
     public URI getType() {
         return type;

@@ -1,28 +1,15 @@
 package com.amit.book_store.catalog.web.controller;
 
+import static io.restassured.RestAssured.given;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
+
 import com.amit.book_store.catalog.AbstarctIntegrationTest;
 import com.amit.book_store.catalog.domain.product.Product;
 import io.restassured.http.ContentType;
-
-import io.restassured.response.ValidatableResponse;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.jdbc.Sql;
-
-//import static javax.swing.UIManager.get;
-//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.util.List;
-import java.util.Map;
-
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.is;
-import static org.assertj.core.api.Assertions.assertThat;
 
 @Sql("/test-data.sql")
 public class ProductControllerTest extends AbstarctIntegrationTest {
@@ -34,24 +21,20 @@ public class ProductControllerTest extends AbstarctIntegrationTest {
      * System.out.println("Products in DB: " + products);
      * }
      **/
-
-
     @Test
     public void shouldReturnProducts() {
 
         /**
-         String response = given().contentType(ContentType.JSON)
-         .when()
-         .get("http://localhost:8081/api/products")
-         .then()
-         .statusCode(200)
-         .extract()
-         .asString();
-
-         System.out.println("Response: " + response);
+         * String response = given().contentType(ContentType.JSON)
+         * .when()
+         * .get("http://localhost:8081/api/products")
+         * .then()
+         * .statusCode(200)
+         * .extract()
+         * .asString();
+         *
+         * System.out.println("Response: " + response);
          **/
-
-
         given().contentType(ContentType.JSON)
                 .when()
                 .get("/api/products")
@@ -61,11 +44,11 @@ public class ProductControllerTest extends AbstarctIntegrationTest {
                 .body("totalElements", is(15))
                 .body("pageNumber", is(1))
                 .body("totalPages", is(2))
-//                .body("isFirst", is(true))
+                //                .body("isFirst", is(true))
                 .body("lastPage", is(false))
-//                .body("pageSize", is(10))
-//                .body("hasNext", is(true))cf
-//                .body("hasPrevious", is(false));
+        //                .body("pageSize", is(10))
+        //                .body("hasNext", is(true))cf
+        //                .body("hasPrevious", is(false));
         ;
     }
 
@@ -103,7 +86,6 @@ public class ProductControllerTest extends AbstarctIntegrationTest {
     }
 }
 
-
 // given
 //        String url = "/api/v1/products";
 //        String expectedContentType = "application/json";
@@ -117,4 +99,3 @@ public class ProductControllerTest extends AbstarctIntegrationTest {
 //        // then
 //        var content = response.getResponse().getContentAsString();
 //        System.out.println("Response content: " + content);
-

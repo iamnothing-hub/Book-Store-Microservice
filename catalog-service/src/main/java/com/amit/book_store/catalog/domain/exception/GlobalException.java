@@ -1,15 +1,12 @@
 package com.amit.book_store.catalog.domain.exception;
 
-
 import com.amit.book_store.catalog.domain.payload.ApiResponse;
+import java.net.URI;
+import java.time.LocalDateTime;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import java.net.URI;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @RestControllerAdvice
 public class GlobalException {
@@ -18,10 +15,8 @@ public class GlobalException {
     private static final URI ISE_FOUND_TYPE = URI.create("https://api.bookstore.com/errors/not-found");
     private static final String SERVICE_NAME = "catalog-service";
 
-
-
     @ExceptionHandler(ProductNotFoundException.class)
-    public ResponseEntity<ApiResponse> handleProductNotFoundException( ProductNotFoundException ex){
+    public ResponseEntity<ApiResponse> handleProductNotFoundException(ProductNotFoundException ex) {
         String message = ex.getMessage();
 
         ApiResponse apiResponse = new ApiResponse();
@@ -33,9 +28,6 @@ public class GlobalException {
         apiResponse.setTitle(HttpStatus.NOT_FOUND);
         apiResponse.setType(NOT_FOUND_TYPE);
 
-
-
         return new ResponseEntity<>(apiResponse, HttpStatus.OK);
     }
-
 }

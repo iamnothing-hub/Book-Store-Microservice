@@ -23,12 +23,10 @@ public class Product {
     @Column(name = "image_url")
     private String imageUrl;
 
-
     private Double price;
 
     // Constructors
-    public Product() {
-    }
+    public Product() {}
 
     public Product(String code, String name, String description, String imageUrl, Double price) {
         this.code = code;

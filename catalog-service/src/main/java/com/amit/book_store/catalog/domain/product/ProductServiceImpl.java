@@ -11,12 +11,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Optional;
-
 @Service
 @Transactional
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductRepository productRepository;
@@ -24,9 +21,9 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public PageableResponse<Product> getAllProducts(int pageNumber, int pageSize) {
 
-        Sort sort  = Sort.by("name").ascending();
-        pageNumber = pageNumber <=1 ? 0 : pageNumber-1;
-        Pageable pageable = PageRequest.of(pageNumber, pageSize,sort);
+        Sort sort = Sort.by("name").ascending();
+        pageNumber = pageNumber <= 1 ? 0 : pageNumber - 1;
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
 
         Page<Product> products = productRepository.findAll(pageable);
         return PageHelper.getTPageableResponse(products, Product.class);
@@ -34,10 +31,9 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Product getProductByCode(String code) throws ProductNotFoundException {
-        Product product = productRepository.findByCode(code).orElseThrow(() -> ProductNotFoundException.codeException(code));
+        Product product =
+                productRepository.findByCode(code).orElseThrow(() -> ProductNotFoundException.codeException(code));
 
         return product;
-
     }
-
 }

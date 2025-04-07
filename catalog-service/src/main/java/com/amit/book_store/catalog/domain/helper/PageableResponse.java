@@ -10,10 +10,10 @@ public class PageableResponse<T> {
     private int totalPages;
     private boolean isLastPage;
 
-    public PageableResponse() {
-    }
+    public PageableResponse() {}
 
-    public PageableResponse(List<T> content, int pageNumber, int pageSize, long totalElements, int totalPages, boolean isLastPage) {
+    public PageableResponse(
+            List<T> content, int pageNumber, int pageSize, long totalElements, int totalPages, boolean isLastPage) {
         this.content = content;
         this.pageNumber = pageNumber;
         this.pageSize = pageSize;
