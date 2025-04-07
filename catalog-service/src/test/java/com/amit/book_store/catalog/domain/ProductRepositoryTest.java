@@ -1,11 +1,6 @@
 package com.amit.book_store.catalog.domain;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import com.amit.book_store.catalog.domain.product.Product;
 import com.amit.book_store.catalog.domain.product.ProductRepository;
-import java.util.List;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.jdbc.Sql;
@@ -24,30 +19,30 @@ public class ProductRepositoryTest {
     }*/
 
     /**
-    @Test
-    void shouldGetAllProducts() {
-        List<Product> products = productRepository.findAll();
-        assertThat(products).hasSize(15);
-    }
-    **/
+     * @Test
+     * void shouldGetAllProducts() {
+     * List<Product> products = productRepository.findAll();
+     * assertThat(products).hasSize(15);
+     * }
+     **/
 
     /**
-    @Test
-    void shouldGetProductByCode() {
-        Product product = productRepository.findByCode("B001").orElseThrow();
-        assertThat(product.getCode()).isEqualTo("B001");
-        assertThat(product.getName()).isEqualTo("Atomic Habits");
-        assertThat(product.getDescription()).isEqualTo("An easy & proven way to build good habits & break bad ones.");
-        assertThat(product.getPrice()).isEqualTo(499.0);
-    }
-
-    **/
+     * @Test
+     * void shouldGetProductByCode() {
+     * Product product = productRepository.findByCode("B001").orElseThrow();
+     * assertThat(product.getCode()).isEqualTo("B001");
+     * assertThat(product.getName()).isEqualTo("Atomic Habits");
+     * assertThat(product.getDescription()).isEqualTo("An easy & proven way to build good habits & break bad ones.");
+     * assertThat(product.getPrice()).isEqualTo(499.0);
+     * }
+     *
+     **/
     /**
-    @Test
-    void shouldReturnEmptyWhenProductCodeNotExist() {
-
-        assertThat(productRepository.findByCode("invalid_product_code")).isEmpty();
-    }
-
-    **/
+     * @Test
+     * void shouldReturnEmptyWhenProductCodeNotExist() {
+     *
+     * assertThat(productRepository.findByCode("invalid_product_code")).isEmpty();
+     * }
+     *
+     **/
 }
