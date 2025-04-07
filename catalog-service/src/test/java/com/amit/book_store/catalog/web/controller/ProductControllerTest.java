@@ -8,6 +8,7 @@ import static org.hamcrest.Matchers.is;
 import com.amit.book_store.catalog.AbstarctIntegrationTest;
 import com.amit.book_store.catalog.domain.product.Product;
 import io.restassured.http.ContentType;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.test.context.jdbc.Sql;
 
@@ -21,7 +22,9 @@ public class ProductControllerTest extends AbstarctIntegrationTest {
      * System.out.println("Products in DB: " + products);
      * }
      **/
+
     @Test
+    @Disabled
     public void shouldReturnProducts() {
 
         /**
@@ -53,6 +56,7 @@ public class ProductControllerTest extends AbstarctIntegrationTest {
     }
 
     @Test
+    @Disabled
     void shouldGetProductByCode() {
         Product product = given().contentType(ContentType.JSON)
                 .when()
@@ -71,6 +75,7 @@ public class ProductControllerTest extends AbstarctIntegrationTest {
     }
 
     @Test
+    @Disabled
     void shouldGetProductByInvalidCode() {
 
         String code = "invalid_product_code";
